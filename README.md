@@ -1,27 +1,44 @@
-# VesselWebApp
+# Vessel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
+Vessel is an Angular webapp developed as a project for Avans Hogeschool.
 
-## Development server
+## Contributors
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+FSGabrsek
 
-## Code scaffolding
+## Testing strategy
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+All PR's on the development and master branches will be tested. All tests must pass before pushes may be done to the master branch
 
-## Build
+#### Test status
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**development**<br>
+[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/WatchList/actions/workflows/npm-test-push.yml)
 
-## Running unit tests
+**master**<br>
+[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/WatchList/actions/workflows/npm-test-push.yml)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Deployment strategy
 
-## Running end-to-end tests
+Vessel is hosted using Firebase Hosting, deployment is done via github Actions. For a build to be deployed all tests have to pass.
+PR's on the development branch will be deployed to a firebase preview channel for review of new features. PR's on the master branch will be deployed to the live firebase channel for use in production.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Deployment status
 
-## Further help
+**preview**<br>
+[![Deplo to Firebase Hosting preview channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-preview-pull-request.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/WatchList/actions/workflows/firebase-hosting-preview-pull-request.yml)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**live**<br>
+[![Deploy to Firebase Hosting live channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/WatchList/actions/workflows/firebase-hosting-live-pull-request-merge.yml)
+
+## Branch naming conventions
+
+- ```<type>/<issue>```
+- feat - actual feature implementation
+- style - code style and code clean up
+- test - actual test implementation
+- fix - bug fix
+- refactor - refactoring that doesn't affect the behavior of the code
+- config - github enviroment changes
+- Example - ```fix/Vessel-5```
+
