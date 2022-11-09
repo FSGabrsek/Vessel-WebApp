@@ -13,10 +13,10 @@ All PR's on the development and master branches will be tested. All tests must p
 #### Test status
 
 **development**<br>
-[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/WatchList/actions/workflows/npm-test-push.yml)
+[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml)
 
 **master**<br>
-[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/WatchList/actions/workflows/npm-test-push.yml)
+[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml)
 
 ## Deployment strategy
 
