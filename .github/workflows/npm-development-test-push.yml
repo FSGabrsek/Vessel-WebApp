@@ -1,0 +1,13 @@
+name: Development tests
+on: 
+  push:
+    branches: 
+      - development
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: development
+      - run: npm ci && npm test
