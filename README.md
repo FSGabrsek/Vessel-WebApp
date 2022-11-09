@@ -26,10 +26,10 @@ PR's on the development branch will be deployed to a firebase preview channel fo
 #### Deployment status
 
 **preview**<br>
-[![Deplo to Firebase Hosting preview channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-preview-pull-request.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/WatchList/actions/workflows/firebase-hosting-preview-pull-request.yml)
+[![Deplo to Firebase Hosting preview channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-preview-pull-request.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-preview-pull-request.yml)
 
 **live**<br>
-[![Deploy to Firebase Hosting live channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/WatchList/actions/workflows/firebase-hosting-live-pull-request-merge.yml)
+[![Deploy to Firebase Hosting live channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml)
 
 ## Branch naming conventions
 
