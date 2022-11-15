@@ -1,0 +1,18 @@
+@import "../styles.scss";
+
+.root-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    margin-inline: clamp($px-m, 10vw, $px-xl);
+    flex: 1;
+}
+
+app-footer {
+    align-self: end;
+}
