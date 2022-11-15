@@ -1,0 +1,66 @@
+@import "../../../../styles";
+
+.nav-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 1rem;
+
+    padding: 1.5rem;
+    padding-inline: 5em;
+
+    color: $text;
+}
+
+.link {
+    display: flex;
+    flex-direction: row;
+
+    font-weight: $bold;
+}
+
+.link-text {
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.link:hover .link-text{
+    max-width: 200px;
+    opacity: 1;
+    margin-left: .5em;
+
+    transition: max-width .25s ease-in, opacity .25s ease-in, margin-left .25s ease-in;
+}
+
+.link .link-text{
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+
+    transition: max-width .25s ease-out, opacity .25s ease-out, margin-left .25s ease-out;
+}
+
+.routerlink-active {
+    .link-text {
+        opacity: 1;
+        max-width: 200px;
+        margin-left: .5em;
+    }
+
+    .vessel-icon{
+        color: $cyan-primary;
+    }
+
+    .list-icon{
+        color: $amber-primary;
+    }
+
+    .add-icon{
+        color: $red-primary;
+    }
+
+    .community-icon{
+        color: $highlight
+    }
+}

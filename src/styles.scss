@@ -2,6 +2,16 @@
 @import "./app/styles/fonts";
 @import "./app/styles/headings";
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 html {
     font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: $bg-primary;
 }
