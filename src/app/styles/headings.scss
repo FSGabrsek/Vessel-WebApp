@@ -1,0 +1,37 @@
+@import "variables";
+
+h1 {
+    display: block;
+    font-size: 1.75em;
+    font-weight: $semibold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    font-weight: $semibold;
+}
+
+h3 {
+    display: block;
+    font-size: 1.25em;
+    font-weight: $semibold;
+}
+
+h4 {
+    display: block;
+    font-size: 1.125em;
+    font-weight: $semibold;
+}
+
+h5 {
+    display: block;
+    font-size: .85em;
+    font-weight: $semibold;
+}
+
+h6 {
+    display: block;
+    font-size: .7em;
+    font-weight: $semibold;
+}
