@@ -1,7 +1,7 @@
 export abstract class Generic {
-    public id: number;
+    public id: Number;
 
-    constructor(id: number) {
+    constructor(id: Number) {
         this.id = id;
     }
 }
