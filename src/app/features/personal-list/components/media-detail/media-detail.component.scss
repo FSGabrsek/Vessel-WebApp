@@ -1,0 +1,52 @@
+@import "../../../../../styles";
+
+.media-detail-wrapper {
+    background-color: $bg-secondary;
+    border-radius: $px-xs;
+}
+
+.detail-header-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: $cyan-primary;
+    border-radius: $px-xxs $px-xxs 0 0;
+    padding:  $px-xs $px-s;
+}
+
+.close {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+}
+
+.detail-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $px-xs;
+
+    padding: $px-s;
+}
+
+h2, h3 {
+    margin: 0;
+}
+
+p {
+    margin: $px-xxs 0 0 0;
+}
+
+.detail-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $px-s;
+}
