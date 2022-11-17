@@ -4,22 +4,22 @@ export class MediaVessel extends Generic {
     type: ["series", "film", "literature"];
     title: String;
     synopsis: String;
-    finalLength: Number;
-    currentLength: Number;
+    finalLength: number;
+    currentLength: number;
     status: ["upcoming", "airing", "finished"];
     releaseDate: Date;
     releaseInterval: Date | null;
 
     constructor(
-        id: Number, 
+        id: number, 
         type: ["series", "film", "literature"], 
         title: String, 
         synopsis: String, 
-        finalLength: Number, 
-        currentLength: Number, 
+        finalLength: number, 
+        currentLength: number, 
         status: ["upcoming", "airing", "finished"], 
         releaseDate: Date, 
-        releaseInterval: Date
+        releaseInterval: Date | null
         ) {
         super(id);
         

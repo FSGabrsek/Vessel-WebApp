@@ -21,7 +21,7 @@ export class MediaService {
         return from(this.staticMediaVesselStore);
     }
 
-    staticGetMediaVessel(id: Number) {
+    staticGetMediaVessel(id: number) {
         return from(this.staticMediaVesselStore.filter(vessel => {
             vessel.id = id;
         }));

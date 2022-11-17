@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MediaVessel } from '../../models/MediaVessel.model';
+import { MediaService } from '../../services/media.service';
 
 @Component({
     selector: 'app-create-media',
@@ -18,7 +20,7 @@ export class CreateMediaComponent implements OnInit {
         releaseInterval: [''],
     });
 
-    intervalValue! : Number;
+    intervalValue! : number;
     intervalUnit!: String;
 
     types = ["series", "film", "literature"];
@@ -31,8 +33,10 @@ export class CreateMediaComponent implements OnInit {
     currentLengthVisible = false;
     releaseIntervalVisible = false;
 
-    constructor(private fb: FormBuilder) {
-    }
+    constructor(
+        private fb: FormBuilder,
+        private mediaService: MediaService
+    ) {}
 
     ngOnInit(): void {
         this.form.get("type")?.valueChanges.subscribe( () => {
@@ -84,7 +88,13 @@ export class CreateMediaComponent implements OnInit {
             this.releaseIntervalVisible = this.form.get("releaseInterval")?.enabled ? true : false;
         })
 
-        this.form.get("currentLength")?.addValidators(Validators.min(this.form.get("finalLength")?.value));
+        this.form.get("currentLength")?.addValidators(Validators.max(0));
+        this.form.get("finalLength")?.valueChanges.subscribe(val => { 
+            this.form.get("currentLength")?.clearValidators();
+            this.form.get("currentLength")?.addValidators(Validators.min(0));
+            this.form.get("currentLength")?.addValidators(Validators.max(val));
+            this.form.get("currentLength")?.updateValueAndValidity();
+        });
     }
 
     onIntervalChange(event: any) {
@@ -96,5 +106,50 @@ export class CreateMediaComponent implements OnInit {
     }
 
     onSubmit() {
+        const type = this.form.get("type")?.value;
+        const title = this.form.get("title")?.value;
+        const synopsis = this.form.get("synopsis")?.value;
+        const finalLength = this.form.get("finalLength")?.value;
+        const status =  this.form.get("status")?.value;
+        let currentLength = 0;
+        const releaseDate = this.form.get("releaseDate")?.value;
+        let releaseInterval = null
+
+        if (type == this.types[0] || type == this.types[2]) {
+            if (status == this.statuses[0]) {
+                currentLength = 0;
+            } else if (status == this.statuses[1]) {
+                currentLength = this.form.get("currentLength")?.value;
+            } else {
+                currentLength = finalLength;
+            }
+        } else {
+            currentLength = finalLength;
+        }
+
+        if ((this.intervalUnit == 'd' || this.intervalUnit == 'w') && this.intervalValue != null && this.form.get("releaseInterval")?.enabled) {
+            let weekMult = 1;
+            if (this.intervalUnit == 'w') {
+                weekMult = 7;
+            }
+            releaseInterval = new Date(24 * 3600 * 1000 * this.intervalValue * weekMult);
+        } else {
+            releaseInterval = null;
+        }
+
+        const mediaVessel = new MediaVessel(
+            -1, 
+            type, 
+            title, 
+            synopsis, 
+            finalLength, 
+            currentLength, 
+            status, 
+            releaseDate, 
+            releaseInterval
+        );
+        console.log(mediaVessel);
+        
+        this.mediaService.staticPostMediaVessel(mediaVessel);
     }
 }
