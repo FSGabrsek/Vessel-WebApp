@@ -1,23 +1,23 @@
 import { Generic } from "src/app/core/models/generic.model";
 
 export class MediaVessel extends Generic {
-    type: ["series", "film", "literature"];
+    type: "series" | "film" | "literature";
     title: String;
     synopsis: String;
     finalLength: number;
     currentLength: number;
-    status: ["upcoming", "airing", "finished"];
+    status: "upcoming" | "airing" | "finished";
     releaseDate: Date;
     releaseInterval: Date | null;
 
     constructor(
         id: number, 
-        type: ["series", "film", "literature"], 
+        type: "series" | "film" | "literature",
         title: String, 
         synopsis: String, 
         finalLength: number, 
         currentLength: number, 
-        status: ["upcoming", "airing", "finished"], 
+        status: "upcoming" | "airing" | "finished", 
         releaseDate: Date, 
         releaseInterval: Date | null
         ) {

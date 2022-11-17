@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaVessel } from '../../models/MediaVessel.model';
+import { MediaService } from '../../services/media.service';
 
 @Component({
-  selector: 'app-view-media',
-  templateUrl: './view-media.component.html',
-  styleUrls: ['./view-media.component.scss']
+    selector: 'app-view-media',
+    templateUrl: './view-media.component.html',
+    styleUrls: ['./view-media.component.scss']
 })
 export class ViewMediaComponent implements OnInit {
+    mediaVesselArray: MediaVessel[] = []
 
-  constructor() { }
+    constructor(private mediaService: MediaService) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.mediaService.staticGetMediaVessels()
+        .subscribe(mediaVessel => { this.mediaVesselArray.push(mediaVessel) });
+    }
 
 }
