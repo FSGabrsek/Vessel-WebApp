@@ -1,0 +1,13 @@
+@import "../../../../../styles";
+
+.not-watched {
+    background-color: $red-primary;
+}
+
+.in-progress {
+    background-color: $amber-primary;
+}
+
+.completed {
+    background-color: $cyan-primary;
+}
