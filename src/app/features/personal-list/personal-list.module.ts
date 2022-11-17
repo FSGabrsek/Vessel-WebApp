@@ -7,13 +7,15 @@ import { CreateMediaComponent } from './pages/create-media/create-media.componen
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ViewMediaComponent } from './pages/view-media/view-media.component';
 import { MediaListItemComponent } from './components/media-list-item/media-list-item.component';
+import { MediaDetailComponent } from './components/media-detail/media-detail.component';
 
 
 @NgModule({
   declarations: [
     CreateMediaComponent,
     ViewMediaComponent,
-    MediaListItemComponent
+    MediaListItemComponent,
+    MediaDetailComponent
   ],
   imports: [
     CommonModule,
