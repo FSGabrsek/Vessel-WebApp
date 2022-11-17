@@ -5,6 +5,8 @@ input, textarea, select {
     border-radius: $px-xs;
     padding: $px-xs;
 
+    font-family: 'Open Sans', sans-serif;
+
     &::placeholder {
         color: $highlight;
     }
@@ -13,12 +15,22 @@ input, textarea, select {
         outline: 2px $outline solid;
     }
 
-    &-invalid {
+    &:invalid {
         outline: 2px $red-bright solid;
     }
 
     &:disabled {
         color: $outline;
+    }
+}
+
+textarea {
+    font-size: 13.333333px;
+}
+
+input, select, textarea {
+        &.ng-touched.ng-invalid {
+        outline: 2px $red-bright solid;
     }
 }
 

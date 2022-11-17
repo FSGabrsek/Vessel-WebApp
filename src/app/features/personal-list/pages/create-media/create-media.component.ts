@@ -11,8 +11,8 @@ export class CreateMediaComponent implements OnInit {
         type: ['', Validators.required],
         title: ['', Validators.required],
         synopsis: ['', Validators.required],
-        finalLength: ['', Validators.required],
-        currentLength: ['',],
+        finalLength: ['', [ Validators.required, Validators.min(1) ]],
+        currentLength: ['', Validators.min(0)],
         status: ['', Validators.required],
         releaseDate: ['', Validators.required],
         releaseInterval: [''],
@@ -83,6 +83,8 @@ export class CreateMediaComponent implements OnInit {
         this.form.get("releaseInterval")?.valueChanges.subscribe( () => {
             this.releaseIntervalVisible = this.form.get("releaseInterval")?.enabled ? true : false;
         })
+
+        this.form.get("currentLength")?.addValidators(Validators.min(this.form.get("finalLength")?.value));
     }
 
     onIntervalChange(event: any) {

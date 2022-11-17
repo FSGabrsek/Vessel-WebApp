@@ -9,6 +9,10 @@
         &:hover {
             background-color: $hover-color;
         }
+
+        &:disabled {
+            background-color: $outline;
+        }
     }
     
     &-hollow {
@@ -21,6 +25,11 @@
 
         &:hover {
             outline: 2px solid $hover-color;
+        }
+
+        &:disabled {
+            outline: 2px solid $outline;
+            cursor: default;
         }
     }
 }
@@ -42,4 +51,6 @@ button {
     border: 0;
     outline: 0;
     background-color: none;
+
+    cursor: pointer;
 }
