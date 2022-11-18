@@ -1,6 +1,11 @@
 @import "./app/styles/variables";
+
 @import "./app/styles/fonts";
 @import "./app/styles/headings";
+@import "./app/styles/inputs";
+@import "./app/styles/buttons";
+@import "./app/styles/anchor";
+
 
 html, body {
     height: 100%;
@@ -9,6 +14,7 @@ html, body {
 
 html {
     font-family: 'Open Sans', sans-serif;
+    color: $text;
 }
 
 body {

@@ -1,0 +1,44 @@
+@import "../../../../../styles";
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $px-s;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    gap: $px-m;
+
+    flex-wrap: wrap;
+}
+
+.form-parallel {
+    display: flex;
+    flex-direction: row;
+    gap: $px-xs;
+}
+
+input[type=text], select {
+    width: clamp(5em, 30vw, $px-xl);
+}
+
+input[type=number] {
+    width: 5em;
+}
+
+textarea {
+    height: 5em;
+    width: 20em;
+}
+
+button {
+    align-self: flex-start;
+}

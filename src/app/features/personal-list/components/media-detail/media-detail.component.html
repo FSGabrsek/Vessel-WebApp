@@ -1,0 +1,26 @@
+<div class="media-detail-wrapper">
+    <div class="detail-header-wrapper">
+        <h2>{{ mediaVessel.title }}</h2>
+        <a routerLink=".." class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path fill="currentColor" d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg>
+        </a>
+    </div>
+    <div class="detail-content-wrapper">
+        <div class="detail-element">
+            <span>Status: {{ mediaVessel.status }}</span>
+        </div>
+        <div class="detail-element">
+            <h3>Synopsis</h3>
+            <p>{{ mediaVessel.synopsis }}</p>
+        </div>
+        <div class="detail-element">
+            <span>{{ lengthFlavourText }}</span>
+        </div>
+        <div class="detail-element">
+            <div class="detail-group">
+                <button routerLink="edit-media" class="button-amber-solid">edit</button>
+                <button class="button-red-solid" (click)="onDelete()">delete</button>
+            </div>
+        </div>
+    </div>
+</div>
