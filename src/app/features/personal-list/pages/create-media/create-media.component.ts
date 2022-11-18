@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MediaVessel } from '../../models/MediaVessel.model';
 import { MediaService } from '../../services/media.service';
 
@@ -35,7 +36,8 @@ export class CreateMediaComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private mediaService: MediaService
+        private mediaService: MediaService,
+        private router: Router
     ) {}
 
     ngOnInit(): void {
@@ -151,5 +153,6 @@ export class CreateMediaComponent implements OnInit {
         console.log(mediaVessel);
         
         this.mediaService.staticPostMediaVessel(mediaVessel);
+        this.router.navigate(["view-media"]);
     }
 }
