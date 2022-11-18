@@ -8,7 +8,7 @@ import { MediaVessel } from '../models/MediaVessel.model';
 })
 export class MediaService {
     staticMediaVesselStore: MediaVessel[];
-    staticArrayStroreEvent = new EventEmitter<void>();
+    staticArrayStoreEvent = new EventEmitter<void>();
 
     constructor() {
         this.staticMediaVesselStore = [
@@ -59,7 +59,7 @@ export class MediaService {
         filterArray(this.staticMediaVesselStore, id).then(res => {
             return this.staticMediaVesselStore = res;
         }).then(() => {
-            this.staticArrayStroreEvent.emit();
+            this.staticArrayStoreEvent.emit();
         })
     }
 }

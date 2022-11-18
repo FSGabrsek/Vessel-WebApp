@@ -16,7 +16,7 @@ export class ViewMediaComponent implements OnInit {
         let sub = this.mediaService.staticGetMediaVessels()
         .subscribe(mediaVessel => { this.mediaVesselArray.push(mediaVessel) });
 
-        this.mediaService.staticArrayStroreEvent
+        this.mediaService.staticArrayStoreEvent
         .subscribe(() => { 
             this.mediaVesselArray = [];
             sub.unsubscribe();
