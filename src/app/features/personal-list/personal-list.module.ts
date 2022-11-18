@@ -8,6 +8,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ViewMediaComponent } from './pages/view-media/view-media.component';
 import { MediaDetailComponent } from './components/media-detail/media-detail.component';
 import { MediaFormComponent } from './components/media-form/media-form.component';
+import { MediaEditComponent } from './components/media-edit/media-edit.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MediaFormComponent } from './components/media-form/media-form.component
         CreateMediaComponent,
         ViewMediaComponent,
         MediaDetailComponent,
-        MediaFormComponent
+        MediaFormComponent,
+        MediaEditComponent
     ],
     imports: [
         CommonModule,

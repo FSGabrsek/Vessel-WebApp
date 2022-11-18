@@ -36,7 +36,7 @@ export class MediaService {
                 107,
                 "finished",
                 new Date(2016, 8, 26),
-                new Date(24 * 3600 * 7)
+                null
             ),
         ]
     }
@@ -62,6 +62,11 @@ export class MediaService {
         }).then(() => {
             this.staticArrayStoreEvent.emit();
         })
+    }
+
+    staticUpdateMediaVessel(mediaVessel: MediaVessel) {
+        const i = this.staticMediaVesselStore.findIndex(vessel => vessel.id == mediaVessel.id)!;
+        this.staticMediaVesselStore[i] = mediaVessel;
     }
 }
 

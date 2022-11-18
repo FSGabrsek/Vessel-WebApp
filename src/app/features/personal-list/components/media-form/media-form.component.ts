@@ -1,6 +1,8 @@
+import { formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
 import { MediaVessel } from '../../models/MediaVessel.model';
 
 @Component({
@@ -9,7 +11,7 @@ import { MediaVessel } from '../../models/MediaVessel.model';
   styleUrls: ['./media-form.component.scss']
 })
 export class MediaFormComponent implements OnInit {
-    @Input() inputMediaVessel!: MediaVessel;
+    @Input() inputMediaVessel?: MediaVessel;
     @Output() submitEvent = new EventEmitter<MediaVessel>();
     @Output() cancelEvent = new EventEmitter<void>();
 
@@ -99,6 +101,31 @@ export class MediaFormComponent implements OnInit {
             this.mediaForm.get("currentLength")?.addValidators(Validators.max(val));
             this.mediaForm.get("currentLength")?.updateValueAndValidity();
         });
+
+        of(this.inputMediaVessel).subscribe(val => {
+            this.mediaForm.get("type")?.setValue(val?.type);
+            this.mediaForm.get("title")?.setValue(val?.title);
+            this.mediaForm.get("synopsis")?.setValue(val?.synopsis);
+            this.mediaForm.get("finalLength")?.setValue(val?.finalLength);
+            this.mediaForm.get("currentLength")?.setValue(val?.currentLength);
+            this.mediaForm.get("status")?.setValue(val?.status);
+            this.mediaForm.get("releaseDate")?.setValue(formatDate(val!.releaseDate, "yyy-MM-dd", "en"));
+
+            if (val?.releaseInterval) {
+                const intervalUnit = val.releaseInterval.getTime() % ( 24 * 3600 * 1000 * 7 ) == 0 ? 'w' : 'd';
+                let intervalValue;
+                
+                if (intervalUnit == 'd') {
+                    intervalValue = val.releaseInterval.getTime() / ( 24 * 3600 * 1000 )
+                } else {
+                    intervalValue = val.releaseInterval.getTime() / ( 24 * 3600 * 1000 * 7 )
+                }
+                
+                this.releaseIntervalVisible = true;
+                this.intervalUnit = intervalUnit;
+                this.intervalValue = intervalValue;
+            }  
+        })
     }
 
     onIntervalChange(event: any) {
@@ -142,7 +169,7 @@ export class MediaFormComponent implements OnInit {
         }
 
         const mediaVessel = new MediaVessel(
-            -1, 
+            this.inputMediaVessel?.id ?? -1, 
             type, 
             title, 
             synopsis, 
