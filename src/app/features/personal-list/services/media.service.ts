@@ -1,5 +1,5 @@
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { MediaVessel } from '../models/MediaVessel.model';
 
@@ -8,6 +8,7 @@ import { MediaVessel } from '../models/MediaVessel.model';
 })
 export class MediaService {
     staticMediaVesselStore: MediaVessel[];
+    staticArrayStroreEvent = new EventEmitter<void>();
 
     constructor() {
         this.staticMediaVesselStore = [
@@ -53,4 +54,18 @@ export class MediaService {
             return vessel.id == id;
         }));
     }
+
+    staticDeleteMediaVessel(id: number) {
+        filterArray(this.staticMediaVesselStore, id).then(res => {
+            return this.staticMediaVesselStore = res;
+        }).then(() => {
+            this.staticArrayStroreEvent.emit();
+        })
+    }
+}
+
+async function filterArray(array: MediaVessel[], id: number): Promise<MediaVessel[]> {
+    return array.filter(val => {
+        return val.id != id;
+    })
 }

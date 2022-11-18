@@ -23,7 +23,6 @@ export class MediaDetailComponent implements OnInit {
         this.route.paramMap.subscribe(params => {
             this.id = parseInt(params.get("id")!);            
             this.mediaService.staticGetMediaVessel(this.id).subscribe(vessel => {
-                console.log("aaaaaaaaaaaaa");
                 
                 this.mediaVessel = vessel;
                 switch (vessel.type) {
@@ -49,5 +48,10 @@ export class MediaDetailComponent implements OnInit {
                 }
             });
         });
+    }
+
+    onDelete() {
+        this.mediaService.staticDeleteMediaVessel(this.id);
+        this.router.navigate([".."], { relativeTo: this.route });
     }
 }

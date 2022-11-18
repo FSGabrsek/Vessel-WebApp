@@ -13,8 +13,16 @@ export class ViewMediaComponent implements OnInit {
     constructor(private mediaService: MediaService) { }
 
     ngOnInit(): void {
-        this.mediaService.staticGetMediaVessels()
+        let sub = this.mediaService.staticGetMediaVessels()
         .subscribe(mediaVessel => { this.mediaVesselArray.push(mediaVessel) });
+
+        this.mediaService.staticArrayStroreEvent
+        .subscribe(() => { 
+            this.mediaVesselArray = [];
+            sub.unsubscribe();
+            sub = this.mediaService.staticGetMediaVessels()
+            .subscribe(mediaVessel => { this.mediaVesselArray.push(mediaVessel) });
+        })
     }
 
 }
