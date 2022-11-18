@@ -41,8 +41,9 @@ export class MediaService {
         ]
     }
 
-    staticPostMediaVessel(MediaVessel: MediaVessel) {
-        this.staticMediaVesselStore.push(MediaVessel);
+    staticPostMediaVessel(mediaVessel: MediaVessel) {
+        mediaVessel.id = this.staticMediaVesselStore.length
+        this.staticMediaVesselStore.push(mediaVessel);
     }
 
     staticGetMediaVessels(): Observable<MediaVessel> {
