@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MediaVessel } from '../../models/MediaVessel.model';
+import { MediaVessel } from 'src/app/features/personal-list/models/MediaVessel.model';
 
 @Component({
     selector: 'app-media-list-item',
