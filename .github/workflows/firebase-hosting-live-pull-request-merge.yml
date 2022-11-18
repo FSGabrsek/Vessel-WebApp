@@ -1,9 +1,9 @@
 name: Firebase hosting
 on: 
   workflow_run:
-    workflows: ["Master tests"]
+    workflows: ["Main tests"]
     branches:
-      - master
+      - main
     types:
       - completed
 jobs:
