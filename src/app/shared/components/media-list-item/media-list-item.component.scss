@@ -1,0 +1,38 @@
+@import "../../../../styles";
+
+.not-watched {
+    background-color: $red-primary;
+}
+
+.in-progress {
+    background-color: $amber-primary;
+}
+
+.completed {
+    background-color: $cyan-primary;
+}
+
+.list-item-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: $px-s;
+
+    padding: $px-xs;
+
+    &:hover {
+        background-color: $amber-bright;
+        cursor: pointer;
+    }
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.125rem;
+}

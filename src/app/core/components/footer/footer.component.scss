@@ -1,0 +1,16 @@
+@import "../../../../styles.scss";
+
+.footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 3em;
+
+    padding-inline: $px-m;
+    margin-top: $px-xs;
+
+    color: $highlight;
+
+    font-size: small;
+    text-decoration: underline;
+}
