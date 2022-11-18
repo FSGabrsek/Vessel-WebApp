@@ -40,7 +40,7 @@ export class MediaDetailComponent implements OnInit {
                         if (vessel.status == "finished") {
                             this.lengthFlavourText = `${vessel.currentLength} chapters`;
                         } else {
-                            this.lengthFlavourText = `${vessel.currentLength} chapters out of ${vessel.finalLength} chapters`;
+                            this.lengthFlavourText = `${vessel.currentLength} chapters out of ${vessel.finalLength} released`;
                         }
                         break;
                     default:

@@ -23,19 +23,53 @@ export class MediaService {
                 24,
                 "finished",
                 new Date(2011, 4, 11),
-                new Date(24 * 3600 * 7)
+                new Date(24 * 3600 * 7 * 1000)
             ),
             new MediaVessel(
                 1,
                 "film",
                 "Kimi no Na wa.",
-                `Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and hopes for a future in architecture.\n
-                One day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but in Taki's body! Elsewhere, Taki finds himself living Mitsuha's life in the humble countryside. In pursuit of an answer to this strange phenomenon, they begin to search for one another.\n
-                Kimi no Na wa. revolves around Mitsuha and Taki's actions, which begin to have a dramatic impact on each other's lives, weaving them into a fabric held together by fate and circumstance.`,
+                `A comet appears and mysteriously affects and connects the lives of two teenagers of the same age, a boy in the big, bustling city of Tokyo and a girl in a country village where life is slow but idyllic. They find for unknown reasons, they wake up in each other's bodies for weeks at a time. At first, they both think these experiences are just vivid dreams, but when the reality of their situations sinks in, they learn to adjust and even enjoy it. Soon they start to communicate and try to leave notes about who they are and what they are doing. But as they discover more about each other and the other's life, they uncover some disturbing hints that their distance is more than just physical and tragedy haunts them.`,
                 107,
                 107,
                 "finished",
                 new Date(2016, 8, 26),
+                null
+            ),
+            new MediaVessel(
+                2,
+                "series",
+                "The Mandalorian Season 1",
+                `After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter. `,
+                8,
+                8,
+                "finished",
+                new Date(2019, 11, 12),
+                new Date(24 * 3600 * 7 * 1000)
+            ),
+            new MediaVessel(
+                3,
+                "film",
+                "Im Westen nichts Neues",
+                `The story follows teenagers Paul Bäumer and his friends Albert and Müller, who voluntarily enlist in the German army, riding a wave of patriotic fervor that quickly dissipates once they face the brutal realities of life on the front. Paul's preconceptions about the enemy and the rights and wrongs of the conflict soon crumble. However, amid the countdown to armistice, Paul must carry on fighting until the end, with no purpose other than to satisfy the top brass' desire to end the war on a German offensive.`,
+                148,
+                148,
+                "finished",
+                new Date(2022, 10, 28),
+                null
+            ),
+            new MediaVessel(
+                4,
+                "literature",
+                "The Paradox Paradox",
+                `Osheen Shupple has been working his entire life to resolve the paradox of a desperate audio message from years ago, one which holds a horrifying secret that will change the course of history. His plan: build a time machine and return to the source of the message. But he can’t do it alone.\n
+                Fortunately, the universe has supplied a perfect team: an archaeologist serving 28 life sentences, a veterinarian with an identity crisis and no original body parts, a cheating university student, and a famous/very, very dead starship captain.\n
+                Together, they will be propelled across the past, and to worlds beyond their timelines, on a temporal treasure-hunt to trace the tragic truth behind whoever Austin Lang turns out to be.\n
+                But time is not to be trifled with, and every misstep unmasks another layer of chronological chaos. The past can’t be changed – but will there be a future worth saving...?`,
+                0,
+                0,
+                "upcoming",
+                new Date(2023, 4, 16),
                 null
             ),
         ]
