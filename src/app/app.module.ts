@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PersonalListModule } from './features/personal-list/personal-list.module';
+import { AboutModule } from './features/about/about.module';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { PersonalListModule } from './features/personal-list/personal-list.modul
         AppRoutingModule,
         CoreModule,
         PersonalListModule,
+        AboutModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

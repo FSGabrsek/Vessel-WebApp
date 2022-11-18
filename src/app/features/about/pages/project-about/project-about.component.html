@@ -1,0 +1,16 @@
+<h1>Vessel</h1>
+<p>Vessel is a webapp that makes it easy to track all media you're watching, reading, or planning to watch in the future. On Vessel you can add pieces of media to your personal list, organise them by type, provide them with a description, track your progress by episode or minute and leave a review to share with your friends when you're done.</p>
+<h2>Datamodel</h2>
+<p>Vessel uses a simple datamodel to store the media you and others watch.</p>
+<img src="../../../../../assets/images/Data model ERD.png" alt="Enitity relationship diagram">
+<h3>MediaSoul</h3>
+<p>MediaSouls are the core of Vessel's data structure. Souls represent an individual user's interactions with a piece of media. It stores the current progress as a number, the last time the progress was updated as a date and based on the progress in relation to the media's total length it stores a calculated measure 'Status'. This indicates whether the media is 'Finished',  'In Progress' or 'Not Watched'.</p>
+<p>Souls must belong to a MediaVessel via a 0 or many to 1 relation and Users watch souls via a 1 to 0 or many relation. Souls are graded by reviews, which they store via a 1 to 0 or 1 relation.</p>
+<h3>Review</h3>
+<p>Users can rate media on Vessel by leaving reviews. Reviews have a rating (either <b>+</b>, <b>-</b> or <b>~</b>) and a content field for a more detailed description. Internally reviews also store a date to track when reviews are created and updated.</p>
+<h3>MediaVessel</h3>
+<p>Whereas souls are an individual user's expirience with a piece of media, vessels represent the media itself. Vessels store whether they are a series, a film or literature as 'Type'. A vessel also stores a title, synopsis and it's length. For vessels that have not been completely released, length is split into a current length and an eventual final length. Whether the media is upcoming, currently airing or finished is stored in as 'status'. Finally, the vessel stores its release date, and how often new parts are released as dates.</p>
+<p>Only the original creator of a mediavessel is allowed to edit its data, so the vessel's owner is stored in a 1 to 0 or many relation from a user to vessels.</p>
+<h3>User</h3>
+<p>Users of vessel are represented as user entities. A user's username and password are stored in addition to an email adress for authentication and a date of birth.</p>
+<p>Users can follow other users to see their vessels. Following is represented as a 0 or many relation from the user entity to itself.</p>
