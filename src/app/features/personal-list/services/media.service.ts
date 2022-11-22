@@ -1,7 +1,15 @@
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import { EventEmitter, Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
+import { User } from 'src/app/core/models/user.model';
 import { MediaVessel } from '../models/mediaVessel.model';
+
+const user = new User(
+    0,
+    "jd",
+    "johndoe@mail.com",
+    new Date(0)
+)
 
 @Injectable({
     providedIn: 'root'
@@ -23,7 +31,8 @@ export class MediaService {
                 24,
                 "finished",
                 new Date(2011, 4, 11),
-                new Date(24 * 3600 * 7 * 1000)
+                new Date(24 * 3600 * 7 * 1000),
+                user
             ),
             new MediaVessel(
                 1,
@@ -34,7 +43,8 @@ export class MediaService {
                 107,
                 "finished",
                 new Date(2016, 8, 26),
-                null
+                null,
+                user
             ),
             new MediaVessel(
                 2,
@@ -45,7 +55,8 @@ export class MediaService {
                 8,
                 "finished",
                 new Date(2019, 11, 12),
-                new Date(24 * 3600 * 7 * 1000)
+                new Date(24 * 3600 * 7 * 1000),
+                user
             ),
             new MediaVessel(
                 3,
@@ -56,7 +67,8 @@ export class MediaService {
                 148,
                 "finished",
                 new Date(2022, 10, 28),
-                null
+                null,
+                user
             ),
             new MediaVessel(
                 4,
@@ -70,7 +82,8 @@ export class MediaService {
                 0,
                 "upcoming",
                 new Date(2023, 4, 16),
-                null
+                null,
+                user
             ),
         ]
     }
