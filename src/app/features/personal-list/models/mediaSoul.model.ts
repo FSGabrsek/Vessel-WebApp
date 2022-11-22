@@ -1,5 +1,5 @@
 import { Generic } from "src/app/core/models/generic.model";
-import { MediaVessel } from "./MediaVessel.model";
+import { MediaVessel } from "./mediaVessel.model";
 
 export class MediaSoul extends Generic {
     private _progress: number;

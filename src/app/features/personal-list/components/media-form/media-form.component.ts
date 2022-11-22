@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
-import { MediaVessel } from '../../models/MediaVessel.model';
+import { MediaVessel } from '../../models/mediaVessel.model';
 
 @Component({
   selector: 'app-media-form',

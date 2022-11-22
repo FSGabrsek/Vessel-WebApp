@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MediaVessel } from 'src/app/features/personal-list/models/MediaVessel.model';
+import { MediaVessel } from 'src/app/features/personal-list/models/mediaVessel.model';
 
 import { MediaListItemComponent } from './media-list-item.component';
 

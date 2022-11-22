@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaVessel } from '../../models/MediaVessel.model';
+import { MediaVessel } from '../../models/mediaVessel.model';
 import { MediaService } from '../../services/media.service';
 
 @Component({

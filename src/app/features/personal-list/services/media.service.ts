@@ -1,7 +1,7 @@
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import { EventEmitter, Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
-import { MediaVessel } from '../models/MediaVessel.model';
+import { MediaVessel } from '../models/mediaVessel.model';
 
 @Injectable({
     providedIn: 'root'
