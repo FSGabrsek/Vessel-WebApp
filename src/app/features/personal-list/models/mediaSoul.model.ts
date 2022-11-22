@@ -1,4 +1,5 @@
 import { Generic } from "src/app/core/models/generic.model";
+import { User } from "src/app/core/models/user.model";
 import { MediaVessel } from "./mediaVessel.model";
 
 export class MediaSoul extends Generic {
@@ -6,13 +7,21 @@ export class MediaSoul extends Generic {
     lastModified: Date;
     status: "finished" | "in progress" | "not started";
     vessel: MediaVessel;
+    owner: User;
 
-    constructor(id: number, progress: number, lastModified: Date, vessel: MediaVessel) {
+    constructor(
+        id: number, 
+        progress: number, 
+        lastModified: Date, 
+        vessel: MediaVessel, 
+        owner: User
+    ) {
         super(id);
 
         this._progress = progress;
         this.lastModified = lastModified;
         this.vessel = vessel;
+        this.owner = owner
 
         this.status = this.getStatus(progress, vessel.finalLength);
     }

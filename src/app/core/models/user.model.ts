@@ -5,7 +5,12 @@ export class User extends Generic {
     email: String;
     dateOfBirth: Date;
 
-    constructor(id: number, username: String, email: String, dateOfBirth: Date) {
+    constructor(
+        id: number, 
+        username: String, 
+        email: String, 
+        dateOfBirth: Date
+    ) {
         super(id);
 
         this.username = username;
