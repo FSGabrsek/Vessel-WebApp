@@ -50,3 +50,7 @@ p {
     flex-wrap: wrap;
     gap: $px-s;
 }
+
+input.ng-touched.ng-invalid {
+    outline: 2px $red-bright solid;
+}

@@ -1,0 +1,76 @@
+@import "../../../../../styles";
+
+.progress-wrapper {
+    margin-top: $px-xxs;
+}
+
+.progress-track {
+    height: 1rem;
+    width: 100%;
+
+    background-color: $bg-bright;
+    border-radius: .5rem;
+}
+
+.progress-measure {
+    height: 1rem;
+
+    border-radius: .5rem;
+}
+
+.progress-in-progress {
+    background-color: $amber-primary;
+}
+
+.progress-finished {
+    background-color: $cyan-primary;
+}
+
+.progress-control-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    margin: $px-xs $px-xs 0 $px-xs;
+}
+
+.progress-numerical {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: .5em;
+}
+
+.divider {
+    font-size: 1.5em;
+    font-weight: $semibold;
+}
+
+.total {
+    font-size: 13.333333px;
+}
+
+.button-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $bg-bright;
+    color: $text;
+
+    padding: $px-xxs;
+    border-radius: $px-xxs;
+
+    &:hover {
+        background-color: $bg-brighter;
+    }
+}
+
+.input-control {
+    width: 3em;
+    padding: .25rem;
+    text-align: center;
+}

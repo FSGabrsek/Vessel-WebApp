@@ -40,8 +40,8 @@ export class MediaFormComponent implements OnInit {
     currentLengthVisible = false;
     releaseIntervalVisible = false;
 
-    constructor(
-        private formBuilder: FormBuilder,
+    constructor(private formBuilder: FormBuilder,
+        
         private router: Router
     ) {}
 

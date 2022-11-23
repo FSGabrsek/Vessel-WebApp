@@ -14,6 +14,10 @@
             <p>{{ mediaVessel.synopsis }}</p>
         </div>
         <div class="detail-element">
+            <h3>Progress</h3>
+            <app-media-progress [length]="mediaVessel.finalLength" [progress]="4"></app-media-progress>
+        </div>
+        <div class="detail-element">
             <span>{{ lengthFlavourText }}</span>
         </div>
         <div class="detail-element">
