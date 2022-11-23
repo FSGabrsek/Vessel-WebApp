@@ -4,8 +4,8 @@
         <div class="list-wrapper">
             <!-- <div class="search-wrapper"></div> -->
             <div class="list">
-                <div class="list-item-wrapper" *ngFor="let media of mediaVesselArray">
-                    <a routerLink="./{{media.id}}"><app-media-list-item [mediaVessel]="media"></app-media-list-item></a>
+                <div class="list-item-wrapper" *ngFor="let soul of mediaSoulArray">
+                    <a routerLink="./{{soul.id}}"><app-media-list-item [mediaSoul]="soul"></app-media-list-item></a>
                 </div>
             </div>
         </div>

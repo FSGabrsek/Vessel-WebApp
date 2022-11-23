@@ -15,7 +15,7 @@
         </div>
         <div class="detail-element">
             <h3>Progress</h3>
-            <app-media-progress [length]="mediaVessel.finalLength" [progress]="4"></app-media-progress>
+            <app-media-progress [length]="mediaVessel.finalLength" [progress]="mediaSoul.progress" (progressEvent)="onUpdate($event)"></app-media-progress>
         </div>
         <div class="detail-element">
             <span>{{ lengthFlavourText }}</span>

@@ -5,7 +5,7 @@ import { MediaVessel } from "./mediaVessel.model";
 export class MediaSoul extends Generic {
     private _progress: number;
     lastModified: Date;
-    status: "finished" | "in progress" | "not started";
+    status: "finished" | "in-progress" | "not-started";
     vessel: MediaVessel;
     owner: User;
 
@@ -34,13 +34,13 @@ export class MediaSoul extends Generic {
         this.status = this.getStatus(value, this.vessel.finalLength)
     }
 
-    private getStatus(progress: number, length: number): "finished" | "in progress" | "not started" {
-        if (progress >= length) {
+    private getStatus(progress: number, length: number): "finished" | "in-progress" | "not-started" {
+        if (progress <= 0) {
+            return "not-started";
+        } else if (progress >= length) {
             return "finished";
-        } else if (progress <= 0) {
-            return "not started";
         } else {
-            return "in progress";
+            return "in-progress";
         }
     }
 }

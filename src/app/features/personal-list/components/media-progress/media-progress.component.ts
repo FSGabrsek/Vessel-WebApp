@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { of } from 'rxjs';
 
 @Component({
     selector: 'app-media-progress',
@@ -38,7 +39,11 @@ export class MediaProgressComponent implements OnInit {
     }
 
     progressStyle() {
-        return `width: ${( this.progress / this.length ) * 100}%`;
+        if (this.length == 0) {
+            return "width: 0%";
+        } else {
+            return `width: ${( this.progress / this.length ) * 100}%`;
+        }
     }
 
     progressClass() {

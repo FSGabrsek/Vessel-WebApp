@@ -1,15 +1,28 @@
 @import "../../../../styles";
 
-.not-watched {
+.not-started {
     background-color: $red-primary;
+
+    &:hover {
+        background-color: $red-bright;
+    } 
 }
 
 .in-progress {
     background-color: $amber-primary;
+
+    &:hover {
+        background-color: $amber-bright;
+    } 
 }
 
-.completed {
+.finished {
     background-color: $cyan-primary;
+
+    &:hover {
+        background-color: $cyan-bright;
+    } 
+    
 }
 
 .list-item-wrapper {
@@ -22,7 +35,6 @@
     padding: $px-xs;
 
     &:hover {
-        background-color: $amber-bright;
         cursor: pointer;
     }
 }

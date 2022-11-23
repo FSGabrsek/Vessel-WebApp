@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MediaSoul } from '../../models/mediaSoul.model';
 import { MediaVessel } from '../../models/mediaVessel.model';
 import { MediaService } from '../../services/media.service';
 
@@ -10,6 +11,7 @@ import { MediaService } from '../../services/media.service';
     })
 export class MediaDetailComponent implements OnInit {
     id!: number;
+    mediaSoul!: MediaSoul;
     mediaVessel!: MediaVessel;
     lengthFlavourText!: String;
 
@@ -22,9 +24,12 @@ export class MediaDetailComponent implements OnInit {
     ngOnInit(): void {
         this.route.paramMap.subscribe(params => {
             this.id = parseInt(params.get("id")!);            
-            this.mediaService.staticGetMediaVessel(this.id).subscribe(vessel => {
+            this.mediaService.staticGetMediaSoul(this.id).subscribe(soul => {
                 
-                this.mediaVessel = vessel;
+                const vessel = soul.vessel;
+                this.mediaSoul = soul;
+                
+                this.mediaVessel = soul.vessel;
                 switch (vessel.type) {
                     case "series":
                         if (vessel.status == "finished") {
@@ -53,5 +58,10 @@ export class MediaDetailComponent implements OnInit {
     onDelete() {
         this.mediaService.staticDeleteMediaVessel(this.id);
         this.router.navigate([".."], { relativeTo: this.route });
+    }
+
+    onUpdate(progress: number) {
+        this.mediaSoul.progress = progress;
+        this.mediaService.staticUpdateMediaSoul(this.mediaSoul)
     }
 }
