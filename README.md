@@ -16,7 +16,7 @@ All PR's on the development and master branches will be tested. All tests must p
 [![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-development-test-push.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml)
 
 **master**<br>
-[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-master-test-push.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml)
+[![Run tests on push](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-master-test-push.yml/badge.svg?branch=main)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/npm-test-push.yml)
 
 ## Deployment strategy
 
@@ -29,7 +29,7 @@ PR's on the development branch will be deployed to a firebase preview channel fo
 [![Deploy to Firebase Hosting preview channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-preview-pull-request.yml/badge.svg?branch=development)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-preview-pull-request.yml)
 
 **live**<br>
-[![Deploy to Firebase Hosting live channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml/badge.svg?branch=master)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml)
+[![Deploy to Firebase Hosting live channel on PR Merge](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml/badge.svg?)](https://github.com/FSGabrsek/Vessel-WebApp/actions/workflows/firebase-hosting-live-pull-request-merge.yml)
 
 ## Branch naming conventions
 
