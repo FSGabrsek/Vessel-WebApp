@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MediaFormComponent } from '../../components/media-form/media-form.component';
 
 import { CreateMediaComponent } from './create-media.component';
 
@@ -11,10 +13,13 @@ describe('CreateMediaComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [
-                RouterTestingModule
+                RouterTestingModule,
+                FormsModule,
+                ReactiveFormsModule
             ],
             declarations: [ 
-                CreateMediaComponent 
+                CreateMediaComponent,
+                MediaFormComponent 
             ]
         })
         .compileComponents();

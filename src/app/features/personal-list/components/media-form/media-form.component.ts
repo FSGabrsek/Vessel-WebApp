@@ -3,7 +3,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
-import { MediaVessel } from '../../models/MediaVessel.model';
+import { User } from 'src/app/core/models/user.model';
+import { MediaVessel } from '../../models/mediaVessel.model';
 
 @Component({
   selector: 'app-media-form',
@@ -39,8 +40,8 @@ export class MediaFormComponent implements OnInit {
     currentLengthVisible = false;
     releaseIntervalVisible = false;
 
-    constructor(
-        private formBuilder: FormBuilder,
+    constructor(private formBuilder: FormBuilder,
+        
         private router: Router
     ) {}
 
@@ -177,7 +178,13 @@ export class MediaFormComponent implements OnInit {
             currentLength, 
             status, 
             releaseDate, 
-            releaseInterval
+            releaseInterval,
+            new User(
+                0,
+                "jd",
+                "johndoe@mail.com",
+                new Date(0)
+            )
         );        
         
         this.submitEvent.emit(mediaVessel);

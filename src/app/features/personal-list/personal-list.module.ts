@@ -9,6 +9,7 @@ import { ViewMediaComponent } from './pages/view-media/view-media.component';
 import { MediaDetailComponent } from './components/media-detail/media-detail.component';
 import { MediaFormComponent } from './components/media-form/media-form.component';
 import { MediaEditComponent } from './components/media-edit/media-edit.component';
+import { MediaProgressComponent } from './components/media-progress/media-progress.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MediaEditComponent } from './components/media-edit/media-edit.component
         ViewMediaComponent,
         MediaDetailComponent,
         MediaFormComponent,
-        MediaEditComponent
+        MediaEditComponent,
+        MediaProgressComponent
     ],
     imports: [
         CommonModule,

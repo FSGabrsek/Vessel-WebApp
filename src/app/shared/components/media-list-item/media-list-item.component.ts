@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MediaVessel } from 'src/app/features/personal-list/models/MediaVessel.model';
+import { MediaSoul } from 'src/app/features/personal-list/models/mediaSoul.model';
+import { MediaVessel } from 'src/app/features/personal-list/models/mediaVessel.model';
 
 @Component({
     selector: 'app-media-list-item',
@@ -7,14 +8,16 @@ import { MediaVessel } from 'src/app/features/personal-list/models/MediaVessel.m
     styleUrls: ['./media-list-item.component.scss']
 })
 export class MediaListItemComponent implements OnInit {
-    @Input() mediaVessel!: MediaVessel;
+    @Input() mediaSoul!: MediaSoul;
+    mediaVessel!: MediaVessel
 
     constructor() { }
 
     ngOnInit(): void {
+        this.mediaVessel = this.mediaSoul.vessel;
     }
 
     progressClass() {
-        return "in-progress"
+        return this.mediaSoul.status;
     }
 }

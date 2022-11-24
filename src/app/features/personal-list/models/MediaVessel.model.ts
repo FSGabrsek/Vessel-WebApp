@@ -1,4 +1,5 @@
 import { Generic } from "src/app/core/models/generic.model";
+import { User } from "src/app/core/models/user.model";
 
 export class MediaVessel extends Generic {
     type: "series" | "film" | "literature";
@@ -9,6 +10,7 @@ export class MediaVessel extends Generic {
     status: "upcoming" | "airing" | "finished";
     releaseDate: Date;
     releaseInterval: Date | null;
+    owner: User;
 
     constructor(
         id: number, 
@@ -19,8 +21,9 @@ export class MediaVessel extends Generic {
         currentLength: number, 
         status: "upcoming" | "airing" | "finished", 
         releaseDate: Date, 
-        releaseInterval: Date | null
-        ) {
+        releaseInterval: Date | null,
+        owner: User
+    ) {
         super(id);
         
         this.type = type;
@@ -31,5 +34,6 @@ export class MediaVessel extends Generic {
         this.status = status;
         this.releaseDate = releaseDate;
         this.releaseInterval = releaseInterval;
+        this.owner = owner;
     }
 }
