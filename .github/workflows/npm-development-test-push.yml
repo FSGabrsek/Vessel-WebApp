@@ -1,8 +1,7 @@
 name: Development tests
 on: 
-  push:
-    branches: 
-      - development
+ pull_request:
+    branches: [development]
 jobs:
   test:
     runs-on: ubuntu-latest

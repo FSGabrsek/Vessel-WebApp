@@ -1,14 +1,9 @@
 name: Firebase preview
 on: 
-  workflow_run:
-    workflows: ["Development tests"]
-    branches:
-      - development
-    types:
-      - completed
+   pull_request:
+    branches: [development]
 jobs:
   build_and_deploy:
-    if: ${{ (github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,11 +16,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_VESSEL_WEBAPP }}'
           projectId: vessel-webapp
           channelId: 'pr-development-preview'
-  on_failure:
-    runs-on: ubuntu-latest
-    if: ${{ (github.event.workflow_run.conclusion == 'failure') }}
-    steps:
-      - uses: actions/github-script@v3
-        with:
-          script: |
-            core.setFailed('Preview build cannot be deployed because not all tests passed')
