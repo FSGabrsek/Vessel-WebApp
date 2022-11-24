@@ -169,23 +169,35 @@ export class MediaFormComponent implements OnInit {
             releaseInterval = null;
         }
 
-        const mediaVessel = new MediaVessel(
-            this.inputMediaVessel?.id ?? -1, 
-            type, 
-            title, 
-            synopsis, 
-            finalLength, 
-            currentLength, 
-            status, 
-            releaseDate, 
-            releaseInterval,
-            new User(
-                0,
-                "jd",
-                "johndoe@mail.com",
-                new Date(0)
-            )
-        );        
+        let mediaVessel;
+        if (this.inputMediaVessel) {
+            mediaVessel = this.inputMediaVessel;
+            mediaVessel.type = type;
+            mediaVessel.title = title;
+            mediaVessel.synopsis = synopsis;
+            mediaVessel.finalLength = finalLength;
+            mediaVessel.currentLength = currentLength;
+            mediaVessel.releaseDate = releaseDate;
+            mediaVessel.releaseInterval = releaseInterval;
+        } else {
+            mediaVessel = new MediaVessel(
+                -1, 
+                type, 
+                title, 
+                synopsis, 
+                finalLength, 
+                currentLength, 
+                status, 
+                releaseDate, 
+                releaseInterval,
+                new User(
+                    0,
+                    "jd",
+                    "johndoe@mail.com",
+                    new Date(0)
+                )
+            );        
+        }
         
         this.submitEvent.emit(mediaVessel);
     }
