@@ -181,7 +181,7 @@ export class MediaFormComponent implements OnInit {
             mediaVessel.releaseInterval = releaseInterval;
         } else {
             mediaVessel = new MediaVessel(
-                1, 
+                -1, 
                 type, 
                 title, 
                 synopsis, 
