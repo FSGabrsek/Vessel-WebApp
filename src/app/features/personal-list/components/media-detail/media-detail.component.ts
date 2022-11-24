@@ -56,7 +56,7 @@ export class MediaDetailComponent implements OnInit {
     }
 
     onDelete() {
-        this.mediaService.staticDeleteMediaVessel(this.id);
+        this.mediaService.staticDeleteMediaSoul(this.id);
         this.router.navigate([".."], { relativeTo: this.route });
     }
 

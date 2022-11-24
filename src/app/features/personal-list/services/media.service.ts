@@ -173,6 +173,7 @@ export class MediaService {
         filterArray<MediaSoul>(this.staticMediaSoulStore, id).then(res => {
             return this.staticMediaSoulStore = res;
         }).then(() => {
+            this.staticDeleteMediaVessel(id);
             this.staticArrayStoreEvent.emit();
         })
     }
