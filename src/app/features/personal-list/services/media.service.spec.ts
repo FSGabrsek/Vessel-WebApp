@@ -38,7 +38,7 @@ import { MediaService } from './media.service';
                 user
             );
 
-        expect(service.staticPostMediaVessel(vessel));
+        expect(service.staticPostMediaVessel(vessel)).toBeUndefined();
         done();
     });
 
