@@ -1,13 +1,24 @@
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 import { EventEmitter, Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
-import { MediaVessel } from '../models/MediaVessel.model';
+import { Generic } from 'src/app/core/models/generic.model';
+import { User } from 'src/app/core/models/user.model';
+import { MediaSoul } from '../models/mediaSoul.model';
+import { MediaVessel } from '../models/mediaVessel.model';
+
+const user = new User(
+    0,
+    "jd",
+    "johndoe@mail.com",
+    new Date(0)
+)
 
 @Injectable({
     providedIn: 'root'
 })
 export class MediaService {
     staticMediaVesselStore: MediaVessel[];
+    staticMediaSoulStore: MediaSoul[];
     staticArrayStoreEvent = new EventEmitter<void>();
 
     constructor() {
@@ -23,7 +34,8 @@ export class MediaService {
                 24,
                 "finished",
                 new Date(2011, 4, 11),
-                new Date(24 * 3600 * 7 * 1000)
+                new Date(24 * 3600 * 7 * 1000),
+                user
             ),
             new MediaVessel(
                 1,
@@ -34,7 +46,8 @@ export class MediaService {
                 107,
                 "finished",
                 new Date(2016, 8, 26),
-                null
+                null,
+                user
             ),
             new MediaVessel(
                 2,
@@ -45,7 +58,8 @@ export class MediaService {
                 8,
                 "finished",
                 new Date(2019, 11, 12),
-                new Date(24 * 3600 * 7 * 1000)
+                new Date(24 * 3600 * 7 * 1000),
+                user
             ),
             new MediaVessel(
                 3,
@@ -56,7 +70,8 @@ export class MediaService {
                 148,
                 "finished",
                 new Date(2022, 10, 28),
-                null
+                null,
+                user
             ),
             new MediaVessel(
                 4,
@@ -70,29 +85,93 @@ export class MediaService {
                 0,
                 "upcoming",
                 new Date(2023, 4, 16),
-                null
+                null,
+                user
             ),
-        ]
+        ];
+
+        this.staticMediaSoulStore = [
+            new MediaSoul(
+                0,
+                24,
+                new Date(),
+                this.staticMediaVesselStore[0],
+                user
+            ),
+            new MediaSoul(
+                1,
+                107,
+                new Date(),
+                this.staticMediaVesselStore[1],
+                user
+            ),
+            new MediaSoul(
+                2,
+                3,
+                new Date(),
+                this.staticMediaVesselStore[2],
+                user
+            ),
+            new MediaSoul(
+                3,
+                0,
+                new Date(),
+                this.staticMediaVesselStore[3],
+                user
+            ),
+            new MediaSoul(
+                4,
+                0,
+                new Date(),
+                this.staticMediaVesselStore[4],
+                user
+            ),
+        ];
     }
 
     staticPostMediaVessel(mediaVessel: MediaVessel) {
         mediaVessel.id = this.staticMediaVesselStore.length
         this.staticMediaVesselStore.push(mediaVessel);
+        this.staticMediaSoulStore.push(new MediaSoul (
+            this.staticMediaSoulStore.length,
+            0,
+            new Date(),
+            mediaVessel,
+            user
+        ))
     }
 
     staticGetMediaVessels(): Observable<MediaVessel> {
         return from(this.staticMediaVesselStore);
     }
 
+    staticGetMediaSouls(): Observable<MediaSoul> {
+        return from(this.staticMediaSoulStore);
+    }
+
     staticGetMediaVessel(id: number): Observable<MediaVessel> {
-        return from(this.staticMediaVesselStore.filter(vessel => {
-            return vessel.id == id;
+        return from(this.staticMediaVesselStore.filter(val => {
+            return val.id == id;
+        }));
+    }
+
+    staticGetMediaSoul(id: number): Observable<MediaSoul> {
+        return from(this.staticMediaSoulStore.filter(val => {
+            return val.id == id;
         }));
     }
 
     staticDeleteMediaVessel(id: number) {
-        filterArray(this.staticMediaVesselStore, id).then(res => {
+        filterArray<MediaVessel>(this.staticMediaVesselStore, id).then(res => {
             return this.staticMediaVesselStore = res;
+        }).then(() => {
+            this.staticArrayStoreEvent.emit();
+        })
+    }
+
+    staticDeleteMediaSoul(id: number) {
+        filterArray<MediaSoul>(this.staticMediaSoulStore, id).then(res => {
+            return this.staticMediaSoulStore = res;
         }).then(() => {
             this.staticArrayStoreEvent.emit();
         })
@@ -102,9 +181,14 @@ export class MediaService {
         const i = this.staticMediaVesselStore.findIndex(vessel => vessel.id == mediaVessel.id)!;
         this.staticMediaVesselStore[i] = mediaVessel;
     }
+
+    staticUpdateMediaSoul(mediaSoul: MediaSoul) {
+        const i = this.staticMediaVesselStore.findIndex(vessel => vessel.id == mediaSoul.id)!;
+        this.staticMediaSoulStore[i] = mediaSoul;
+    }
 }
 
-async function filterArray(array: MediaVessel[], id: number): Promise<MediaVessel[]> {
+async function filterArray<T extends Generic>(array: T[], id: number): Promise<T[]> {
     return array.filter(val => {
         return val.id != id;
     })

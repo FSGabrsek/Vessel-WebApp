@@ -1,17 +1,15 @@
 name: Firebase hosting
 on: 
-  workflow_run:
-    workflows: ["Main tests"]
+  push:
     branches:
       - main
-    types:
-      - completed
 jobs:
   deploy:
-    if: ${{ (github.event.workflow_run.conclusion == 'success') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: main
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -19,11 +17,3 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_VESSEL_WEBAPP }}'
           projectId: vessel-webapp
           channelId: live
-  on_failure:
-    runs-on: ubuntu-latest
-    if: ${{ (github.event.workflow_run.conclusion == 'failure') }}
-    steps:
-      - uses: actions/github-script@v3
-        with:
-          script: |
-            core.setFailed('Build cannot be deployed because not all tests passed')

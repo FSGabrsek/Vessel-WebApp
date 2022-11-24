@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaVessel } from '../../models/MediaVessel.model';
+import { MediaSoul } from '../../models/mediaSoul.model';
+import { MediaVessel } from '../../models/mediaVessel.model';
 import { MediaService } from '../../services/media.service';
 
 @Component({
@@ -8,20 +9,20 @@ import { MediaService } from '../../services/media.service';
     styleUrls: ['./view-media.component.scss']
 })
 export class ViewMediaComponent implements OnInit {
-    mediaVesselArray: MediaVessel[] = []
+    mediaSoulArray: MediaSoul[] = []
 
     constructor(private mediaService: MediaService) { }
 
     ngOnInit(): void {
-        let sub = this.mediaService.staticGetMediaVessels()
-        .subscribe(mediaVessel => { this.mediaVesselArray.push(mediaVessel) });
+        let sub = this.mediaService.staticGetMediaSouls()
+        .subscribe(soul => { this.mediaSoulArray.push(soul) });
 
         this.mediaService.staticArrayStoreEvent
         .subscribe(() => { 
-            this.mediaVesselArray = [];
+            this.mediaSoulArray = [];
             sub.unsubscribe();
-            sub = this.mediaService.staticGetMediaVessels()
-            .subscribe(mediaVessel => { this.mediaVesselArray.push(mediaVessel) });
+            sub = this.mediaService.staticGetMediaSouls()
+            .subscribe(soul => { this.mediaSoulArray.push(soul) });
         })
     }
 
