@@ -30,7 +30,7 @@ const soul = new MediaSoul(
         user
     ),
     user
-)
+);
 
 describe('MediaListItemComponent', () => {
     let component: TestHostComponent;
